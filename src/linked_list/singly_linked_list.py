@@ -15,3 +15,15 @@ class SinglyLinkedList:
 
     def peek(self):
         return self.head.data
+
+    def get_at(self, index):
+        current = self.head
+        counter = 0
+
+        while(current and counter <= index):
+            if (counter == index):
+                return current.data
+            counter += 1
+            current = current.next_node
+
+        raise IndexError('Invalid indexing')
