@@ -55,3 +55,17 @@ def test_get_at():
     actual = pets.get_at(2)
 
     assert actual == expected
+
+
+def test_len():
+    """
+    can we get length of linked list
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(2)
+    nums.push(55)
+    expected = 3
+    actual = nums.len()
+
+    assert actual == expected
