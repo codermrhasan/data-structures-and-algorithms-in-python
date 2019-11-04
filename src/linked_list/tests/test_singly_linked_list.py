@@ -25,3 +25,16 @@ def test_push():
     actual = names.head.data
 
     assert actual == expected
+
+
+def test_peek():
+    """
+    If we can peek data from head of linked list?
+    """
+    pets = SinglyLinkedList()
+    pets.push('cat')
+    pets.push('dog')
+    expected = 'dog'
+    actual = pets.peek()
+
+    assert actual == expected
