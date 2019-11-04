@@ -94,14 +94,14 @@ def test_insert_at():
     nums.push(3)
     nums.push(54)
 
-    expectd = 3
+    expected = 3
     actual = nums.get_at(1)
-    assert actual == expectd
+    assert actual == expected
 
     nums.insert_at(1, 666)
-    expectd = 666
+    expected = 666
     actual = nums.get_at(1)
-    assert actual == expectd
+    assert actual == expected
 
 
 def test_append():
@@ -113,6 +113,23 @@ def test_append():
     nums.push(3)
 
     nums.append(55)
-    expectd = 55
+    expected = 55
     actual = nums.get_at(2)
-    assert actual == expectd
+    assert actual == expected
+
+
+def test_pop():
+    """
+    can we remove data from head? pop will return the removed data
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(2)
+
+    expected = 2
+    actual = nums.pop()
+    assert expected == actual
+
+    expected = 1
+    actual = nums.peek()
+    assert expected == actual
