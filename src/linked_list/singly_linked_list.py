@@ -27,3 +27,13 @@ class SinglyLinkedList:
             current = current.next_node
 
         raise IndexError('Invalid indexing')
+
+    def len(self):
+        current = self.head
+        counter = 0
+
+        while(current):
+            counter += 1
+            current = current.next_node
+
+        return counter
