@@ -102,3 +102,17 @@ def test_insert_at():
     expectd = 666
     actual = nums.get_at(1)
     assert actual == expectd
+
+
+def test_append():
+    """
+    can we insert data at the end?
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(3)
+
+    nums.append(55)
+    expectd = 55
+    actual = nums.get_at(2)
+    assert actual == expectd
