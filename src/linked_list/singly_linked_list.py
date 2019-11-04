@@ -48,4 +48,20 @@ class SinglyLinkedList:
             counter += 1
             current = current.next_node
 
-        return None
+        return
+
+    def insert_at(self, index, data):
+        prev_node = self.head
+        counter = 0
+        if not index:
+            return
+
+        while(prev_node):
+            if(counter == index-1):
+                new_node = Node()
+                new_node.data = data
+                new_node.next = prev_node.next_node
+                prev_node.next_node = new_node
+
+            counter += 1
+            prev_node = prev_node.next_node
