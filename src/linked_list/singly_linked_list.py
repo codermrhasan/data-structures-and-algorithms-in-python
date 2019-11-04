@@ -73,3 +73,8 @@ class SinglyLinkedList:
                 current.next_node = new_node
                 return
             current = current.next_node
+
+    def pop(self):
+        data = self.head.data
+        self.head = self.head.next_node
+        return data
