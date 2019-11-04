@@ -37,3 +37,15 @@ class SinglyLinkedList:
             current = current.next_node
 
         return counter
+
+    def search(self, data):
+        current = self.head
+        counter = 0
+
+        while(current):
+            if(current.data == data):
+                return counter
+            counter += 1
+            current = current.next_node
+
+        return None
