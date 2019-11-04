@@ -22,6 +22,6 @@ def test_push():
     names = SinglyLinkedList()
     names.push('John')
     expected = 'John'
-    actual = names.head.value
+    actual = names.head.data
 
     assert actual == expected
