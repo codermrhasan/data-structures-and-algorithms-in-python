@@ -78,3 +78,17 @@ class SinglyLinkedList:
         data = self.head.data
         self.head = self.head.next_node
         return data
+
+    def remove_at(self, index):
+        prev_node = self.head
+        counter = 0
+        data = 0
+
+        if not index:
+            return
+
+        while(prev_node):
+            if(counter == index-1):
+                data = prev_node.next_node.data
+                prev_node.next_node = prev_node.next_node.next_node
+                return data
