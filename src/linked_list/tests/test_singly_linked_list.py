@@ -83,3 +83,22 @@ def test_search():
     expected = 1
     actual = nums.search(3)
     assert actual == expected
+
+
+def test_insert_at():
+    """
+    can we insert at a given index?
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(3)
+    nums.push(54)
+
+    expectd = 3
+    actual = nums.get_at(1)
+    assert actual == expectd
+
+    nums.insert_at(1, 666)
+    expectd = 666
+    actual = nums.get_at(1)
+    assert actual == expectd
