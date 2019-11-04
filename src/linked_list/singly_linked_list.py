@@ -58,10 +58,18 @@ class SinglyLinkedList:
 
         while(prev_node):
             if(counter == index-1):
-                new_node = Node()
-                new_node.data = data
+                new_node = Node(data)
                 new_node.next = prev_node.next_node
                 prev_node.next_node = new_node
 
             counter += 1
             prev_node = prev_node.next_node
+
+    def append(self, data):
+        current = self.head
+        while(current):
+            if not current.next_node:
+                new_node = Node(data)
+                current.next_node = new_node
+                return
+            current = current.next_node
