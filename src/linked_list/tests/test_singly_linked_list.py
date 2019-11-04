@@ -133,3 +133,21 @@ def test_pop():
     expected = 1
     actual = nums.peek()
     assert expected == actual
+
+
+def test_remove_at():
+    """
+    can we remove node at certain index of list
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(3)
+    nums.push(4)
+
+    expected = 3
+    actual = nums.remove_at(1)
+    assert expected == actual
+
+    expected = 1
+    actual = nums.get_at(1)
+    assert expected == actual
