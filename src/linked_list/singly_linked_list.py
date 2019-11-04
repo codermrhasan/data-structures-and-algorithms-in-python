@@ -12,3 +12,6 @@ class SinglyLinkedList:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+
+    def peek(self):
+        return self.head.data
