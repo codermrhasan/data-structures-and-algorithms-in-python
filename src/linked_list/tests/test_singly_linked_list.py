@@ -34,7 +34,24 @@ def test_peek():
     pets = SinglyLinkedList()
     pets.push('cat')
     pets.push('dog')
+
     expected = 'dog'
     actual = pets.peek()
+
+    assert actual == expected
+
+
+def test_get_at():
+    """
+    Can we get nth nodes data?
+    """
+    pets = SinglyLinkedList()
+    pets.push('cat')
+    pets.push('dog')
+    pets.push('fish')
+    pets.push('bird')
+
+    expected = 'dog'
+    actual = pets.get_at(2)
 
     assert actual == expected
