@@ -69,3 +69,17 @@ def test_len():
     actual = nums.len()
 
     assert actual == expected
+
+
+def test_search():
+    """
+    can we search a value in linked list at first match and get its index
+    """
+    nums = SinglyLinkedList()
+    nums.push(1)
+    nums.push(3)
+    nums.push(5)
+
+    expected = 1
+    actual = nums.search(3)
+    assert actual == expected
