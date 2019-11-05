@@ -8,6 +8,18 @@ class SinglyLinkedList:
     def __init__(self):
         self.head = None
 
+    def __iter__(self):
+        self.itr = self.head
+        return self
+
+    def __next__(self):
+        if self.itr:
+            data = self.itr.data
+            self.itr = self.itr.next_node
+            return data
+        else:
+            raise StopIteration
+
     def push(self, data):
         new_node = Node(data)
         new_node.next_node = self.head
@@ -54,6 +66,7 @@ class SinglyLinkedList:
         prev_node = self.head
         counter = 0
         if not index:
+            print("for this type of operation we have push()")
             return
 
         while(prev_node):
@@ -85,6 +98,7 @@ class SinglyLinkedList:
         data = 0
 
         if not index:
+            print("for this type of operation we have pop()")
             return
 
         while(prev_node):
@@ -92,3 +106,5 @@ class SinglyLinkedList:
                 data = prev_node.next_node.data
                 prev_node.next_node = prev_node.next_node.next_node
                 return data
+            counter += 1
+            prev_node = prev_node.next_node
