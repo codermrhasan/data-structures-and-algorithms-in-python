@@ -1,5 +1,5 @@
 import pytest
-from stack.stack_using_list import Stack
+from stack.stack_using_linked_list import Stack
 
 
 def test_exists():
@@ -18,8 +18,8 @@ def test_isEmpty():
 def test_push():
     mystack = Stack()
     mystack.push(1)
-    mystack.push(2)
-    assert mystack.data[1] == 2
+    mystack.push('hey')
+    assert mystack.head.data == 'hey'
 
 
 @pytest.fixture
@@ -39,17 +39,17 @@ def empty_stack():
 
 
 def test_pop(filled_stack, empty_stack):
-    m = filled_stack
-    assert m.pop() == 5
-    assert m.pop() == 4
+    st = filled_stack
+    assert st.pop() == 5
+    assert st.pop() == 4
     assert empty_stack.pop() == None
 
 
 def test_peek(filled_stack, empty_stack):
-    assert filled_stack.peek() == 5
-    assert empty_stack.peek() == None
+    assert(filled_stack.peek()) == 5
+    assert(empty_stack.peek()) == None
 
 
 def test_size(filled_stack, empty_stack):
-    assert filled_stack.size() == 5
-    assert empty_stack.size() == 0
+    assert(filled_stack.size()) == 5
+    assert(empty_stack.size()) == 0
