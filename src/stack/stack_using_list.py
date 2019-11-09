@@ -9,10 +9,19 @@ class Stack():
         return self.data.append(data)
 
     def pop(self):
-        return self.data.pop()
+        if self.data:
+            return self.data.pop()
+        else:
+            return
 
     def peek(self):
-        return self.data[len(self.data)-1]
+        if self.data:
+            return self.data[len(self.data)-1]
+        else:
+            return
 
     def size(self):
-        return len(self.data)
+        if self.data:
+            return len(self.data)
+        else:
+            return 0
