@@ -6,6 +6,7 @@ This repo is for implementing data structures and algorithms. Basically in pytho
 - [Linked List](src/linked_list)
 - [Stack](src/stack)
 - [Queue](src/queue_ds)
+- [Tree](src/tree)
 
 ## Testing
 Copy the repo. Open this repo inside terminal. 
