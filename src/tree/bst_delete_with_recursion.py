@@ -62,4 +62,5 @@ class BinarySearchTree:
                     current_root.right = delete_helper(current_root.right, new_root.data)
             
             return current_root
+            
         delete_helper(self.root, data)
