@@ -1,4 +1,4 @@
-class MinBinaryHeap:
+class MaxBinaryHeap:
     def __init__(self):
         self.heapList = []
         
@@ -9,7 +9,7 @@ class MinBinaryHeap:
         childIndex = len(self.heapList)-1  # last index
         while childIndex > 0:
             parentIndex = (childIndex-1)//2
-            if self.heapList[childIndex] < self.heapList[parentIndex]:
+            if self.heapList[childIndex] > self.heapList[parentIndex]:
                 temp = self.heapList[childIndex]
                 self.heapList[childIndex] = self.heapList[parentIndex]
                 self.heapList[parentIndex] = temp
@@ -19,9 +19,9 @@ class MinBinaryHeap:
         self.heapList.append(data)
         self.percUp()
     
-    def minChild(self, parentIndex):
+    def maxChild(self, parentIndex):
         """
-        min child of a parent node which must have child
+        max child of a parent node which must have child
         """
         lastIndex = len(self.heapList) - 1
         leftChildIndex = parentIndex * 2 + 1
@@ -30,7 +30,7 @@ class MinBinaryHeap:
         if lastIndex == leftChildIndex:
             return leftChildIndex
         
-        if self.heapList[leftChildIndex] < self.heapList[rightChildIndex]:
+        if self.heapList[leftChildIndex] > self.heapList[rightChildIndex]:
             return leftChildIndex
         
         return rightChildIndex
@@ -42,18 +42,18 @@ class MinBinaryHeap:
         lastIndex = len(self.heapList)-1
         leftChildIndex = parentIndex * 2 + 1
         while leftChildIndex <= lastIndex:
-            minChildIndex = self.minChild(parentIndex)
-            if self.heapList[parentIndex] > self.heapList[minChildIndex]:
+            maxChildIndex = self.maxChild(parentIndex)
+            if self.heapList[parentIndex] < self.heapList[maxChildIndex]:
                 temp = self.heapList[parentIndex]
-                self.heapList[parentIndex] = self.heapList[minChildIndex]
-                self.heapList[minChildIndex] = temp
+                self.heapList[parentIndex] = self.heapList[maxChildIndex]
+                self.heapList[maxChildIndex] = temp
                 
-            parentIndex = minChildIndex
+            parentIndex = maxChildIndex
             leftChildIndex = parentIndex * 2 + 1
       
-    def delMin(self):
+    def delMax(self):
         """
-        delete minimum element of heap
+        delete max element of heap
         """
         data = self.heapList[0]
         lastIndex = len(self.heapList)-1
@@ -64,7 +64,7 @@ class MinBinaryHeap:
         
     def buildHeap(self, alist):
         """
-        converting a list into min binary heap
+        converting a list into max binary heap
         """
         self.heapList = alist
         lastIndex = len(self.heapList)-1
