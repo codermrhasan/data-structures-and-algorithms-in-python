@@ -8,6 +8,7 @@ This repo is for implementing data structures and algorithms. Basically in pytho
 - [Queue](src/queue_ds)
 - [Tree](src/tree)
 - [Heap](src/heap)
+- [Graph](src/graph)
 
 ## Testing
 Copy the repo. Open this repo inside terminal. 
