@@ -1,56 +1,54 @@
+from collections import deque
+
 class Vertex:
-    def __init__(self, key):
-        self.id = key
-        self.connectedTo = {}
-    
-    def addNeighbor(self, neighbor, weight=0):
-        self.connectedTo[neighbor]=weight
+    def __init__(self, value):
+        self.value = value
+        self.neighbours = []
+        self.visited = False
 
-    def getConnections(self):
-        return self.connectedTo.keys()
-
-    def getId(self):
-        return self.id
-
-    def getWeight(self, neighbor):
-        return self.connectedTo[neighbor]
-    
-    def __repr__(self):
-        return f"{self.id}"
-    
-    def __str__(self):
-        return f"{self.id} connectedTo: {[x.id for x in self.connectedTo]}"
+class Edge:
+    def __init__(self, vertex, weight=0):
+        self.vertex = vertex
+        self.weight = weight
 
 class Graph:
     def __init__(self):
-        self.vertexList = {}
-        self.numVertices = 0
+        self.vertices = []
+
+    def add_vertex(self, value):
+        vertex = Vertex(value)
+        self.vertices.append(vertex)
+        return vertex
+
+    def add_edge(self, vertex1, vertex2, weight=0):
+        if vertex1 in self.vertices and vertex2 in self.vertices:
+            vertex1.neighbours.append(Edge(vertex2, weight))
+
+    def get_neighbours(self, vertex):
+        return vertex.neighbours
+    
+    def get_vertices(self):
+        return self.vertices or None
+    
+    def breadth_first(self, root, operate):
+        q = deque()
+        q.appendleft(root) # for behave like a queue
+        to_reset = set()
+        while q:
+            current = q.pop()
+            current.visited = True
+            to_reset.add(current)
+            
+            operate(current) # getting the nodes which are visited
+            
+            for edge in current.neighbours:
+                if not edge.vertex.visited:
+                    q.appendleft(edge.vertex)
         
-    def addVertex(self, key):
-        newVertex = Vertex(key)
-        self.vertexList[key] = newVertex
-        self.numVertices += 1
-        return newVertex
-    
-    def getVertex(self, key):
-        if key in self.vertexList:
-            return self.vertexList[key]
-        else:
-            return None
-    
-    def addEdge(self, f, t, weight=0):
-        if f not in self.vertexList:
-            self.addVertex(f)
-        if t not in self.vertexList:
-            self.addVertex(t)
-        self.vertexList[f].addNeighbor(self.vertexList[t], weight)
-    
-    def getVertices(self):
-        return self.vertexList.keys()
-    
-    def __contains__(self, key):
-        return key in self.vertexList
-    
-    def __iter__(self):
-        return iter(self.vertexList.values())
+        for vertex in to_reset:
+            vertex.visited = False
+
+    def __len__(self):
+        return len(self.vertices)
+
         
