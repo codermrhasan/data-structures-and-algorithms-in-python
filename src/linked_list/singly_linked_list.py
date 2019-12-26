@@ -108,3 +108,14 @@ class SinglyLinkedList:
                 return data
             counter += 1
             prev_node = prev_node.next_node
+    
+    def remove(self, data):
+        prev_node = self.head
+        data = 0
+
+        while(prev_node):
+            if(data == prev_node.next_node.data):
+                data = prev_node.next_node.data
+                prev_node.next_node = prev_node.next_node.next_node
+                return data
+            prev_node = prev_node.next_node
