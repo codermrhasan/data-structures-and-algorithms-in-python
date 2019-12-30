@@ -1,5 +1,5 @@
-# Data Structures and Algorithms
-Implementing Data Structures and Algorithms. 
+# Data Structures and Algorithms in Python
+Implementing Data Structures and Algorithms in Python.  
 
 ## Overview
 This repo is for implementing data structures and algorithms. Basically in python. Covered topics are given bellow:
